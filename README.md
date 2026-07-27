@@ -1,0 +1,1 @@
+# MotorScoring.Hexagonal.Net8
