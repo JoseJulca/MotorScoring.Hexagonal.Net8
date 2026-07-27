@@ -1,0 +1,147 @@
+{
+  "info": {
+    "_postman_id": "f0d80775-3da9-4f36-88db-08d4cfdbb718",
+    "name": "MotorScoringCrediticioHexagonal",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "9196904",
+    "_collection_link": "https://go.postman.co/collection/9196904-f0d80775-3da9-4f36-88db-08d4cfdbb718?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "00 - Health",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"identificadorExterno\": \"{{identificadorExterno}}\",\n  \"solicitante\": {\n    \"tipoDocumento\": \"DNI\",\n    \"numeroDocumento\": \"12345678\",\n    \"nombresRazonSocial\": \"Persona de prueba\",\n    \"ingresosMensuales\": 5500,\n    \"gastosMensuales\": 1800,\n    \"obligacionesFinancieras\": 700,\n    \"antiguedadLaboralNegocio\": 36,\n    \"numeroObligacionesActivas\": 2,\n    \"puntajeHistorialPagos\": 85,\n    \"alertasMora\": 0\n  },\n  \"codigoProducto\": \"PRESTAMO_PERSONAL\",\n  \"montoSolicitado\": 50000,\n  \"plazoSolicitado\": 12,\n  \"moneda\": \"PEN\",\n  \"finalidadCredito\": \"Consumo\",\n  \"canalOrigen\": \"POSTMAN\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "01 - RF04 Registrar solicitud-Caso1",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"identificadorExterno\": \"SOL-EXT-000001\",\r\n  \"solicitante\": {\r\n    \"tipoDocumento\": \"DNI\",\r\n    \"numeroDocumento\": \"12345678\",\r\n    \"nombresRazonSocial\": \"Juan Perez\",\r\n    \"ingresosMensuales\": 5000.00,\r\n    \"gastosMensuales\": 1500.00,\r\n    \"obligacionesFinancieras\": 500.00,\r\n    \"antiguedadLaboralNegocio\": 36,\r\n    \"numeroObligacionesActivas\": 1,\r\n    \"puntajeHistorialPagos\": 85,\r\n    \"alertasMora\": 0\r\n  },\r\n  \"codigoProducto\": \"PRESTAMO_PERSONAL\",\r\n  \"montoSolicitado\": 15000.00,\r\n  \"plazoSolicitado\": 24,\r\n  \"moneda\": \"PEN\",\r\n  \"finalidadCredito\": \"Capital de trabajo\",\r\n  \"canalOrigen\": \"WEB\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/solicitudes-credito",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "solicitudes-credito"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "01 - RF04 Registrar solicitud-Caso2",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"identificadorExterno\": \"SOL-EXT-000002\",\r\n  \"solicitante\": {\r\n    \"tipoDocumento\": \"DNI\",\r\n    \"numeroDocumento\": \"87654321\",\r\n    \"nombresRazonSocial\": \"Carlos Mendoza\",\r\n    \"ingresosMensuales\": 5000.00,\r\n    \"gastosMensuales\": 1500.00,\r\n    \"obligacionesFinancieras\": 500.00,\r\n    \"antiguedadLaboralNegocio\": 36,\r\n    \"numeroObligacionesActivas\": 1,\r\n    \"puntajeHistorialPagos\": 85,\r\n    \"alertasMora\": 1\r\n  },\r\n  \"codigoProducto\": \"PRESTAMO_PERSONAL\",\r\n  \"montoSolicitado\": 15000.00,\r\n  \"plazoSolicitado\": 24,\r\n  \"moneda\": \"PEN\",\r\n  \"finalidadCredito\": \"Capital de trabajo\",\r\n  \"canalOrigen\": \"WEB\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/solicitudes-credito",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "solicitudes-credito"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "02 - RF05 y RF06 Validar y calcular",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/solicitudes-credito/64e063f7-7bb0-4f0f-88b3-223396244f11/evaluar",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "solicitudes-credito",
+            "64e063f7-7bb0-4f0f-88b3-223396244f11",
+            "evaluar"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": ""
+    }
+  ]
+}
